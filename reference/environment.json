@@ -1,0 +1,112 @@
+{
+  "timezone": "Asia/Shanghai",
+  "maxClockSkewSeconds": 300,
+  "backfillGraceSeconds": 120,
+  "sensors": [
+    {
+      "deviceId": "sensor-shuhua-01",
+      "name": "书画库房一区温湿度仪A",
+      "zoneId": "zone-shuhua-1",
+      "sensitivity": "高敏感",
+      "calibrationIntervalDays": 180
+    },
+    {
+      "deviceId": "sensor-shuhua-02",
+      "name": "书画库房一区温湿度仪B",
+      "zoneId": "zone-shuhua-1",
+      "sensitivity": "高敏感",
+      "calibrationIntervalDays": 180
+    },
+    {
+      "deviceId": "sensor-ciqi-01",
+      "name": "瓷器库房温湿度仪",
+      "zoneId": "zone-ciqi",
+      "sensitivity": "标准",
+      "calibrationIntervalDays": 365
+    }
+  ],
+  "calibration": [
+    {
+      "recordId": "cal-2026-0001",
+      "deviceId": "sensor-shuhua-01",
+      "at": "2026-03-01T10:00:00+08:00",
+      "offsets": { "temperature": 0.2, "humidity": -1.0 },
+      "by": "计量员-王",
+      "status": "applied"
+    },
+    {
+      "recordId": "cal-2025-0312",
+      "deviceId": "sensor-shuhua-02",
+      "at": "2025-11-10T10:00:00+08:00",
+      "offsets": { "temperature": 0.0, "humidity": 0.5 },
+      "by": "计量员-王",
+      "status": "applied"
+    },
+    {
+      "recordId": "cal-2025-0207",
+      "deviceId": "sensor-ciqi-01",
+      "at": "2026-01-15T09:30:00+08:00",
+      "offsets": { "temperature": -0.1, "humidity": 0.0 },
+      "by": "计量员-李",
+      "status": "applied"
+    }
+  ],
+  "zones": [
+    {
+      "id": "zone-shuhua-1",
+      "name": "书画库房一区",
+      "defaultSensitivity": "高敏感",
+      "thresholds": {
+        "temperature": {
+          "高敏感": { "min": 14, "max": 20, "unit": "C", "criticalMargin": 2 },
+          "标准": { "min": 10, "max": 25, "unit": "C", "criticalMargin": 2 }
+        },
+        "humidity": {
+          "高敏感": { "min": 50, "max": 60, "unit": "%RH", "criticalMargin": 5 },
+          "标准": { "min": 45, "max": 65, "unit": "%RH", "criticalMargin": 5 }
+        }
+      },
+      "quietHours": {
+        "enabled": true,
+        "start": "22:00",
+        "end": "06:30",
+        "suppressBelowLevel": 2
+      },
+      "escalations": [
+        { "afterMinutes": 0, "level": 1, "toRole": "值守员", "reason": "传感器读数首次越限" },
+        { "afterMinutes": 15, "level": 2, "toRole": "值班主管", "reason": "越限持续15分钟未确认" },
+        { "afterMinutes": 30, "level": 3, "toRole": "保护部门负责人", "reason": "越限持续30分钟仍未闭环" }
+      ]
+    },
+    {
+      "id": "zone-ciqi",
+      "name": "瓷器库房",
+      "defaultSensitivity": "标准",
+      "thresholds": {
+        "temperature": {
+          "标准": { "min": 10, "max": 26, "unit": "C", "criticalMargin": 2 }
+        },
+        "humidity": {
+          "标准": { "min": 40, "max": 65, "unit": "%RH", "criticalMargin": 5 }
+        }
+      },
+      "quietHours": {
+        "enabled": false,
+        "start": "23:00",
+        "end": "06:00",
+        "suppressBelowLevel": 2
+      },
+      "escalations": [
+        { "afterMinutes": 0, "level": 1, "toRole": "值守员", "reason": "传感器读数首次越限" },
+        { "afterMinutes": 20, "level": 2, "toRole": "值班主管", "reason": "越限持续20分钟未确认" },
+        { "afterMinutes": 40, "level": 3, "toRole": "保护部门负责人", "reason": "越限持续40分钟仍未闭环" }
+      ]
+    }
+  ],
+  "contacts": [
+    { "id": "contact-night-01", "name": "夜班值守员-赵", "roles": ["值守员"], "phone": "13800000001" },
+    { "id": "contact-night-02", "name": "夜班值守员-孙", "roles": ["值守员"], "phone": "13800000002" },
+    { "id": "contact-supervisor-01", "name": "值班主管-周", "roles": ["值班主管", "值守员"], "phone": "13800000003" },
+    { "id": "contact-head-01", "name": "保护部门负责人-吴", "roles": ["保护部门负责人", "保护人员"], "phone": "13800000004" }
+  ]
+}
