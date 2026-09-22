@@ -1,0 +1,60 @@
+[
+  {
+    "zone": "A",
+    "name": "书画库房",
+    "sensitivity": "high",
+    "metrics": {
+      "temperature": {
+        "warn": { "min": 15, "max": 22 },
+        "critical": { "min": 10, "max": 25 },
+        "unit": "°C"
+      },
+      "humidity": {
+        "warn": { "min": 50, "max": 60 },
+        "critical": { "min": 45, "max": 65 },
+        "unit": "%"
+      }
+    },
+    "silenceWindows": [
+      { "start": "12:30", "end": "13:00", "reason": "午间设备例行维护" }
+    ]
+  },
+  {
+    "zone": "B",
+    "name": "陶瓷库房",
+    "sensitivity": "medium",
+    "metrics": {
+      "temperature": {
+        "warn": { "min": 10, "max": 28 },
+        "critical": { "min": 5, "max": 32 },
+        "unit": "°C"
+      },
+      "humidity": {
+        "warn": { "min": 40, "max": 65 },
+        "critical": { "min": 35, "max": 75 },
+        "unit": "%"
+      }
+    },
+    "silenceWindows": []
+  },
+  {
+    "zone": "C",
+    "name": "精品库房",
+    "sensitivity": "critical",
+    "metrics": {
+      "temperature": {
+        "warn": { "min": 18, "max": 22 },
+        "critical": { "min": 16, "max": 24 },
+        "unit": "°C"
+      },
+      "humidity": {
+        "warn": { "min": 50, "max": 58 },
+        "critical": { "min": 48, "max": 62 },
+        "unit": "%"
+      }
+    },
+    "silenceWindows": [
+      { "start": "23:00", "end": "06:00", "reason": "夜间静音巡查模式（短信聚合，不阻断告警生成）" }
+    ]
+  }
+]

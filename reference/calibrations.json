@@ -1,0 +1,25 @@
+[
+  {
+    "sensorId": "sensor-A-01",
+    "calibratedAt": "2026-08-15T10:00:00+08:00",
+    "clockOffsetMs": 120000,
+    "toleranceMs": 180000,
+    "maxAgeDays": 365,
+    "note": "出厂时钟偏快约 2 分钟，在校准允差内"
+  },
+  {
+    "sensorId": "sensor-A-02",
+    "calibratedAt": "2026-03-02T09:30:00+08:00",
+    "clockOffsetMs": 0,
+    "toleranceMs": 120000,
+    "maxAgeDays": 180,
+    "note": "电池更换后做过一次对时"
+  },
+  {
+    "sensorId": "sensor-B-01",
+    "calibratedAt": "2026-09-01T10:00:00+08:00",
+    "clockOffsetMs": -45000,
+    "toleranceMs": 180000,
+    "maxAgeDays": 365
+  }
+]

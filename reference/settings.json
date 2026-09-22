@@ -1,0 +1,19 @@
+{
+  "timezone": "Asia/Shanghai",
+  "ingest": {
+    "maxBatchSize": 1000,
+    "lateArrivalWindowMs": 86400000,
+    "defaultClockToleranceMs": 120000
+  },
+  "alerting": {
+    "debounceMs": 300000,
+    "dedupeWindowMs": 1800000,
+    "confirmTimeoutMs": 600000,
+    "criticalConfirmTimeoutMs": 300000,
+    "checkIntervalMs": 15000,
+    "highSensitivityEscalationMs": 600000,
+    "recheckVerifyTimeoutMs": 900000,
+    "autoCloseGraceMs": 1800000,
+    "maxEscalations": 3
+  }
+}

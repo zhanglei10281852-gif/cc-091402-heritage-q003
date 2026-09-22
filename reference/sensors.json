@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sensor-A-01",
+    "zone": "A",
+    "name": "书画库房北壁温湿度传感器",
+    "metrics": ["temperature", "humidity"],
+    "active": true
+  },
+  {
+    "id": "sensor-A-02",
+    "zone": "A",
+    "name": "书画库房展柜温湿度传感器",
+    "metrics": ["temperature", "humidity"],
+    "active": true
+  },
+  {
+    "id": "sensor-B-01",
+    "zone": "B",
+    "name": "陶瓷库房通道温湿度传感器",
+    "metrics": ["temperature", "humidity"],
+    "active": true
+  },
+  {
+    "id": "sensor-C-01",
+    "zone": "C",
+    "name": "精品库房无线温湿度传感器",
+    "metrics": ["temperature", "humidity"],
+    "active": true
+  }
+]

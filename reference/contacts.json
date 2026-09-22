@@ -1,0 +1,29 @@
+[
+  {
+    "id": "contact-night-lead",
+    "name": "周敏（夜间值守长）",
+    "role": "值守员",
+    "channels": [{ "type": "sms", "target": "+8613800000001" }],
+    "zones": ["A", "B", "C"],
+    "sensitivity": ["medium", "high", "critical"],
+    "schedule": { "nights": [1, 2, 3, 4, 0], "start": "22:00", "end": "08:00" }
+  },
+  {
+    "id": "contact-conservator",
+    "name": "李远（书画修复师）",
+    "role": "保护人员",
+    "channels": [{ "type": "sms", "target": "+8613800000002" }],
+    "zones": ["A"],
+    "sensitivity": ["high", "critical"],
+    "schedule": null
+  },
+  {
+    "id": "contact-registrar",
+    "name": "王珊（藏品总账主管）",
+    "role": "管理员",
+    "channels": [{ "type": "sms", "target": "+8613800000003" }],
+    "zones": ["C"],
+    "sensitivity": ["critical"],
+    "schedule": null
+  }
+]
